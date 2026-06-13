@@ -1,6 +1,10 @@
+<b>!!! Check out our new [paper](https://arxiv.org/pdf/2104.11280.pdf) and [framework](https://github.com/snap-research/articulated-animation) improved for articulated objects</b>
+
 # First Order Motion Model for Image Animation
 
 This repository contains the source code for the paper [First Order Motion Model for Image Animation](https://papers.nips.cc/paper/8935-first-order-motion-model-for-image-animation) by Aliaksandr Siarohin, [Stéphane Lathuilière](http://stelat.eu), [Sergey Tulyakov](http://stulyakov.com), [Elisa Ricci](http://elisaricci.eu/) and [Nicu Sebe](http://disi.unitn.it/~sebe/). 
+
+[Hugging Face Spaces](https://huggingface.co/spaces/abhishek/first-order-motion-model)
 
 ## Example animations
 
@@ -73,7 +77,12 @@ docker run -it --rm --gpus all \
 ```
 
 ### Colab Demo 
-We prepare a special demo for the google-colab, see: ```demo-colab.ipynb```.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AliaksandrSiarohin/first-order-model/blob/master/demo.ipynb) [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/AliaksandrSiarohin/first-order-model/blob/master/demo.ipynb)
+
+@graphemecluster prepared a GUI demo for the Google Colab. It also works in Kaggle. For the source code, see [```demo.ipynb```](https://github.com/AliaksandrSiarohin/first-order-model/blob/master/demo.ipynb).
+
+For the old demo, see [```old_demo.ipynb```](https://github.com/AliaksandrSiarohin/first-order-model/blob/master/old_demo.ipynb).
 
 ### Face-swap
 It is possible to modify the method to perform face-swap using supervised segmentation masks.
@@ -91,7 +100,7 @@ The code will create a folder in the log directory (each run will create a time-
 Checkpoints will be saved to this folder.
 To check the loss values during training see ```log.txt```.
 You can also check training data reconstructions in the ```train-vis``` subfolder.
-By default the batch size is tunned to run on 2 or 4 Titan-X gpu (appart from speed it does not make much difference). You can change the batch size in the train_params in corresponding ```.yaml``` file.
+By default the batch size is tuned to run on 2 or 4 Titan-X gpu (apart from speed it does not make much difference). You can change the batch size in the train_params in corresponding ```.yaml``` file.
 
 ### Evaluation on video reconstruction
 
@@ -118,9 +127,9 @@ By default video from test set will be randomly paired, but you can specify the 
 There are 2 different ways of performing animation:
 by using **absolute** keypoint locations or by using **relative** keypoint locations.
 
-1) <i>Animation using absolute coordinates:</i> the animation is performed using the absolute postions of the driving video and appearance of the source image.
+1) <i>Animation using absolute coordinates:</i> the animation is performed using the absolute positions of the driving video and appearance of the source image.
 In this way there are no specific requirements for the driving video and source appearance that is used.
-However this usually leads to poor performance since unrelevant details such as shape is transfered.
+However this usually leads to poor performance since irrelevant details such as shape is transferred.
 Check animate parameters in ```taichi-256.yaml``` to enable this mode.
 
 <img src="sup-mat/absolute-demo.gif" width="512"> 
